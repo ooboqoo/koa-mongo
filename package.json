@@ -6,7 +6,7 @@
   "author": "Gavin Wang",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
+    "start": "node --harmony app.js",
     "tsstart": "tsc && node dist/app.js"
   },
   "repository": {
