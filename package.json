@@ -1,13 +1,12 @@
 {
   "name": "koa-mongo",
   "version": "v0.0.1",
-  "description": "Koa2 + MongoDB Playground",
+  "description": "Koa2 + MongoDB + TypeScript Playground",
   "main": "index.js",
   "author": "Gavin Wang",
   "license": "MIT",
   "scripts": {
-    "start": "node --harmony app.js",
-    "tsstart": "tsc && node dist/app.js"
+    "start": "tsc && node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,7 @@
     "koa-router": "^7.0.1"
   },
   "devDependencies": {
+    "@types/node": "^7.0.0",
     "typescript": "2.1.5"
   }
 }
