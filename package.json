@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "config": "^1.24.0",
-    "import-dir": "0.0.1",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
     "koa-cors": "0.0.16",
