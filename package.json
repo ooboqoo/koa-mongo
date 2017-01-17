@@ -14,9 +14,13 @@
   },
   "dependencies": {
     "config": "^1.24.0",
+    "import-dir": "0.0.1",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
-    "koa-router": "^7.0.1"
+    "koa-cors": "0.0.16",
+    "koa-logger": "^1.3.1",
+    "koa-router": "^7.0.1",
+    "mongoose": "^4.7.7"
   },
   "devDependencies": {
     "@types/node": "^7.0.0",

@@ -1,21 +1,15 @@
+// Koa and its middlewares still using commonjs format, ES6 module format will throw error after typescript complilation.
 const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser');
 const config = require('config');
-const handleErrors = require('./middlewares/handle-errors');
+
+import middleware from './middlewares';
+import routes from './routes';
 
 const app = new Koa();
-const router = new Router();
 
-app.use(handleErrors);
-app.use(bodyParser());
+// app.use(middleware());
 
-router.get('/', (ctx) => ctx.body = {hello: 'world'});
-router.get('/error/test', async () => {
-  throw Error('Error handling works!');
-});
-
-app.use(router.routes());
+app.use(routes());
 
 app.listen(config.port, () => {
   console.info(`Listening to http://localhost:${config.port}`);
