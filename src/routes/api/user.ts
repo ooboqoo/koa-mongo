@@ -1,10 +1,37 @@
 import { Context } from 'koa';
 
+import User from '../../models/user';
+
 export default (router) => {
   router
-    .get('/user/me', async (ctx: Context) => {
-      const user = await Promise.resolve('myname');
+    .get('/users', async ctx => ctx.body = await User.find({}))
+    .post('/users', async (ctx: Context) => {
+      ctx.body = await User.create({
+        username: ctx.request.body.name,
+        createTime: new Date(),
+      });
+    })
+    .get('/users/:id', async ctx => {
+        const user = await User.findById(ctx.params.id);
+        if (user) ctx.body = {
+          id: user._id,
+          name: user.username,
+          time: user.createTime
+        };
+      }
+    )
+    .put('/users/:id', async ctx => {
+      const user = await User.findByIdAndUpdate(ctx.params.id, {
+        name: ctx.request.body.name,
+      }, {
+        new: true,
+        runValidators: true,
+      });
       if (user) ctx.body = user;
     })
-
+    .delete('/users/:id', async ctx => {
+        const user = await User.findByIdAndRemove(ctx.params.id);
+        if (user) ctx.status = 204;
+      }
+    );
 };

@@ -1,6 +1,4 @@
-import mongoose from 'mongoose';
-
-const db = mongoose.connect('mongodb://127.0.0.1:27017/demodb');
+import * as mongoose from 'mongoose';
 
 export function connectDatabase(uri) {
   return new Promise((resolve, reject) => {
