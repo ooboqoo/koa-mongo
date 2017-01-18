@@ -1,8 +1,10 @@
+import { Context } from 'koa';
+
 export default (router) => {
   router
-    .get('/', (ctx) => ctx.body = {hello: 'world'} )
+    .get('/', (ctx: Context) => ctx.body = {hello: 'world'} )
     .get('/error', async () => {
       throw Error('Error handling works!');
     })
-    .get('/301', (ctx) => { ctx.status = 301; });
+    .get('/301', (ctx: Context) => { ctx.status = 301; });
 };

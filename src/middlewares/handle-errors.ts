@@ -1,4 +1,4 @@
-export default function() {
+export default (opts?) => {
   return async (ctx, next) => {
     try {
       await next();
