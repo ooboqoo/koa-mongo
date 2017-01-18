@@ -1,5 +1,5 @@
-const compose = require('koa-compose');
-const Router = require('koa-router');
+import * as compose from 'koa-compose';
+import * as Router from 'koa-router';
 
 const routerConfigs = [
   { file: 'base/test', prefix: '' },

@@ -1,6 +1,5 @@
-// Koa and its middlewares still using commonjs format, ES6 module format will throw error after typescript complilation.
-const Koa = require('koa');
-const config = require('config');
+import * as Koa from 'koa';
+import * as config from 'config';
 
 import middleware from './middlewares';
 import routes from './routes';
