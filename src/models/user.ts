@@ -17,7 +17,7 @@ const userSchema = new Schema({
 })
 
 userSchema.virtual('createTime')
-  .set( (value) => { this._createTime = value; })
-  .get( () => this._createTime.toLocaleString() );
+  .set( function(value) { this._createTime = value; })
+  .get( function() { return this._createTime.toLocaleString(); } );
 
 export default model<UserModel>('User', userSchema);
