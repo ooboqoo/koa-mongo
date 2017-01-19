@@ -23,6 +23,9 @@
   },
   "devDependencies": {
     "@types/koa": "^2.0.37",
+    "@types/koa-bodyparser": "^3.0.22",
+    "@types/koa-router": "^7.0.21",
+    "@types/mongoose": "^4.7.3",
     "@types/node": "^7.0.0",
     "typescript": "2.1.5"
   }
