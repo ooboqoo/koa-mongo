@@ -1,6 +1,15 @@
-import * as mongoose from 'mongoose';
+import { Document, Schema, Model, model } from 'mongoose';
 
-const userSchema = new mongoose.Schema({
+export interface User {
+  username: string;
+  email?: string;
+}
+
+export interface UserModel extends User, Document {
+  createTime: Date;
+}
+
+const userSchema = new Schema({
   username: String,
   _createTime: { type: Date, default: Date.now }
 }, {
@@ -8,7 +17,7 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.virtual('createTime')
-  .set( function(value) { this._createTime = value; })
-  .get( function() { return this._createTime.toLocaleString(); } );
+  .set( (value) => { this._createTime = value; })
+  .get( () => this._createTime.toLocaleString() );
 
-export default mongoose.model('User', userSchema);
+export default model<UserModel>('User', userSchema);

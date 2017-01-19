@@ -1,6 +1,7 @@
 import { Context } from 'koa';
+import * as Router from 'koa-router';
 
-export default (router) => {
+export default (router: Router) => {
   router
     .get('/', (ctx: Context) => ctx.body = {hello: 'world'} )
     .get('/error', async () => {

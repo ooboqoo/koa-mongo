@@ -1,17 +1,17 @@
-import { Context } from 'koa';
+import * as Router from 'koa-router';
 
 import User from '../../models/user';
 
-export default (router) => {
+export default (router: Router) => {
   router
-    .get('/users', async ctx => ctx.body = await User.find({}))
-    .post('/users', async (ctx: Context) => {
+    .get('/users', async (ctx: Router.IRouterContext) => ctx.body = await User.find({}))
+    .post('/users', async (ctx: Router.IRouterContext) => {
       ctx.body = await User.create({
         username: ctx.request.body.name,
         createTime: new Date(),
       });
     })
-    .get('/users/:id', async ctx => {
+    .get('/users/:id', async (ctx: Router.IRouterContext) => {
         const user = await User.findById(ctx.params.id);
         if (user) ctx.body = {
           id: user._id,
@@ -20,7 +20,7 @@ export default (router) => {
         };
       }
     )
-    .put('/users/:id', async ctx => {
+    .put('/users/:id', async (ctx: Router.IRouterContext) => {
       const user = await User.findByIdAndUpdate(ctx.params.id, {
         name: ctx.request.body.name,
       }, {
@@ -29,7 +29,7 @@ export default (router) => {
       });
       if (user) ctx.body = user;
     })
-    .delete('/users/:id', async ctx => {
+    .delete('/users/:id', async (ctx: Router.IRouterContext) => {
         const user = await User.findByIdAndRemove(ctx.params.id);
         if (user) ctx.status = 204;
       }

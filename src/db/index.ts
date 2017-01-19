@@ -5,7 +5,7 @@ export function connectDatabase(uri) {
     mongoose.connection
       .on('error', error => reject(error))
       .on('close', () => console.log('Database connection closed.'))
-      .once('open', () => resolve(mongoose.connections[0]));
+      .once('open', () => resolve(mongoose.connection));
 
     mongoose.connect(uri);
   });
