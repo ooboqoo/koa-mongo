@@ -12,7 +12,15 @@ export default (router: Router) => {
       });
     })
     .get('/users/:id', async (ctx: Router.IRouterContext) => {
-        const user = await User.findById(ctx.params.id);
+        let user;
+
+        if (ctx.params.id.length <= 2) {
+          const id: number = parseInt(ctx.params.id);
+          user = await User.findOne({ }).skip(id - 1).limit(1);
+        } else {
+          user = await User.findById(ctx.params.id);
+        }
+ 
         if (user) ctx.body = {
           id: user._id,
           name: user.username,
