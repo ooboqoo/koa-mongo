@@ -1,5 +1,7 @@
 import { Context } from 'koa';
 import * as Router from 'koa-router';
+import * as jwt from 'jsonwebtoken';
+import * as config from 'config';
 
 export default (router: Router) => {
   router
@@ -7,5 +9,9 @@ export default (router: Router) => {
     .get('/error', async () => {
       throw Error('Error handling works!');
     })
+    .post('/token', async (ctx: Router.IRouterContext) => {
+      ctx.body = { token: jwt.sign({ username: ctx.request.body.username }, config.jwtSecret) };
+    })
+    .get('/auth', (ctx: Context) => ctx.body = `Welcome ${ctx.state.jwtdata.username}`)
     .get('/301', (ctx: Context) => { ctx.status = 301; });
 };

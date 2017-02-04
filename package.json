@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "config": "^1.24.0",
+    "jsonwebtoken": "^7.2.1",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
     "koa-cors": "0.0.16",
+    "koa-jwt": "^2.2.2",
     "koa-logger": "^2.0.1",
     "koa-router": "^7.0.1",
     "mongoose": "^4.7.7"

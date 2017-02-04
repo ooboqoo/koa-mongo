@@ -4,13 +4,15 @@ import * as logger from 'koa-logger';
 import * as cors from 'koa-cors';
 import * as bodyParser from 'koa-bodyparser';
 
-import handleErrors from './handle-errors';
+import handleErrors from './error';
+import auth from './auth';
 
 export default function middleware() {
   return compose([
     logger(),
     handleErrors(),
     convert(cors()),
+    auth(),
     bodyParser(),
   ]);
 }
