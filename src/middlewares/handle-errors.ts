@@ -1,4 +1,6 @@
-export default (opts?) => {
+import { Middleware } from 'koa';
+
+export default (opts?): Middleware => {
   return async (ctx, next) => {
     try {
       await next();
