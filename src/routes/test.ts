@@ -3,7 +3,7 @@ import * as Router from 'koa-router';
 
 export default (router: Router) => {
   router
-    .get('/', (ctx: Context) => ctx.body = {hello: 'world'} )
+    .get('/', (ctx: Context) => console.log('should not work') )
     .get('/error', async () => {
       throw Error('Error handling works!');
     })

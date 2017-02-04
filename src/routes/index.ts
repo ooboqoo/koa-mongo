@@ -1,20 +1,27 @@
 import * as compose from 'koa-compose';
 import * as Router from 'koa-router';
+import { Context } from 'koa';
 
-const routerConfigs = [
-  { file: 'base/test', prefix: '' },
-  { file: 'api/user', prefix: '/api' }
+import test from './test';
+import user from './api/user';
+
+const children = [
+  { routes: test, prefix: '' },
+  { routes: user, prefix: '/api' }
 ];
 
 export default function routes() {
-  const composed = routerConfigs.reduce((prev, curr) => {
-    const routes = require('./' + curr.file);
-    const router = new Router({ prefix: curr.prefix });
+  const router = new Router();
 
-    Object.keys(routes).map(name => routes[name](router));
+  router
+    .get('/', (ctx: Context) => ctx.body = {echo: 'Hello World!'});
 
-    return [router.routes(), router.allowedMethods(), ...prev];
-  }, []);
+  // Nested routers
+  children.forEach(child => {
+    const nestedRouter = new Router();
+    child.routes(nestedRouter);
+    router.use(child.prefix, nestedRouter.routes(), nestedRouter.allowedMethods());
+  });
 
-  return compose(composed);
+  return compose([router.routes(), router.allowedMethods()]);
 }
