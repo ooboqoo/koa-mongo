@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "config": "^1.24.0",
+    "crypto-js": "^3.1.9-1",
     "jsonwebtoken": "^7.2.1",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
@@ -24,6 +25,9 @@
     "mongoose": "^4.7.7"
   },
   "devDependencies": {
+    "@types/config": "0.0.32",
+    "@types/crypto-js": "^3.1.33",
+    "@types/jsonwebtoken": "^7.2.0",
     "@types/koa": "^2.0.37",
     "@types/koa-bodyparser": "^3.0.22",
     "@types/koa-router": "^7.0.21",

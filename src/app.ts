@@ -3,7 +3,7 @@ import * as config from 'config';
 
 import middleware from './middlewares';
 import routes from './routes';
-import { connectDatabase } from './db';
+import { connectDatabase } from './databases';
 
 const app = new Koa();
 
@@ -12,15 +12,17 @@ app.use(routes());
 
 (async() => {
   try {
-    const info = await connectDatabase(config.dbUrl);
-    console.log(`Connected to ${config.dbUrl}`);
+    const dbUrl = config.get<string>('dbUrl');
+    const info = await connectDatabase(dbUrl);
+    console.log(`Connected to ${dbUrl}`);
   } catch (error) {
     console.error('Unable to connect to database', error);
   }
 
   try {
-    await app.listen(config.port);
-    console.info(`Listening to http://localhost:${config.port}`);
+    const port = config.get<string>('port');
+    await app.listen(port);
+    console.info(`Listening to http://localhost:${port}`);
   } catch (error) {
     console.log(error);
   }
