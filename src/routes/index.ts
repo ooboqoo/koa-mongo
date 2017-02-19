@@ -3,10 +3,12 @@ import * as Router from 'koa-router';
 import { Context } from 'koa';
 
 import test from './test';
+import files from './files';
 import user from './api/user';
 
 const children = [
   { routes: test, prefix: '' },
+  { routes: files, prefix: '' },
   { routes: user, prefix: '/api' }
 ];
 
