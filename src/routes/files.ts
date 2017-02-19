@@ -2,12 +2,14 @@ import * as Router from 'koa-router';
 import * as config from 'config';
 import * as multer from 'koa-multer';
 import * as http from 'http';
+import * as fs from 'fs';
 
+const dest = config.get('files');
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: dest });
 
 interface IncomingMessage extends http.IncomingMessage {
-  file: any;
+  file: { originalname: string; path: string; mimetype: string; };
   files: any[];
 }
 
@@ -17,11 +19,11 @@ interface IMulterContext extends Router.IRouterContext {
 
 export default (router: Router) => {
   router
-    .post('/profile', upload.single('avatar'), async (ctx: IMulterContext) => {
-      //originalname 文件名称，path上传后文件的临时路径，mimetype文件类型
-      const path = ctx.req.file.path;
-      //之后可以对文件进行上出上传到七牛等操作，完成操作后
-      ctx.body = path;
+    .post('/profile', upload.single('avatar'), async (ctx: IMulterContext) => {  // avatar 为 form 的字段名
+      const { originalname, path } = ctx.req.file;
+      fs.rename(path, dest + originalname);
+      ctx.body = { originalname, path };
+      ctx.status = 200;
     })
     .post('/photos/upload', upload.array('photos', 12));
 };
