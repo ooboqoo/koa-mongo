@@ -7,5 +7,5 @@ export default (opts?): Middleware => {
     secret: config.get<string>('jwtSecret'),
     key: 'jwtdata',
     getToken: (ctx, opts) => ctx.header.authorization
-  }).unless({ path: [/^\/api/, /^\/$/, /^\/error/, /^\/token/] });
+  }).unless({ path: [/^\/api\/users/, /^\/$/, /^\/error/, /^\/token/] });
 }
