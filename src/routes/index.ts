@@ -5,13 +5,11 @@ import { Context } from 'koa';
 import test from './test';
 import files from './files';
 import user from './api/user';
-import api_test from './api/test';
 
 const children = [
   { routes: test, prefix: '' },
-  { routes: files, prefix: '' },
+  { routes: files, prefix: '/api' },
   { routes: user, prefix: '/api' },
-  { routes: api_test, prefix: '/api' },
 ];
 
 export default function routes() {
