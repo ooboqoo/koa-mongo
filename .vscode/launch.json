@@ -5,20 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Program",
-      "type": "node2",
+      "type": "node",
       "request": "launch",
+      "name": "Launch Program",
       "program": "${workspaceRoot}\\dist\\app.js",
       "cwd": "${workspaceRoot}",
-      "outFiles": [],
-      "sourceMaps": true
-    },
-    {
-      "name": "Attach to Process",
-      "type": "node2",
-      "request": "attach",
-      "port": 9229,
-      "outFiles": [],
       "sourceMaps": true
     }
   ]
