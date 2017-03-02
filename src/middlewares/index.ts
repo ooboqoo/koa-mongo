@@ -3,6 +3,7 @@ import * as convert from 'koa-convert';  // convert koa legacy generator middlew
 import * as logger from 'koa-logger';
 import * as cors from 'koa-cors';
 import * as bodyParser from 'koa-bodyparser';
+import * as server from 'koa-static';
 
 import handleErrors from './error';
 import auth from './auth';
@@ -14,5 +15,6 @@ export default function middleware() {
     convert(cors()),
     auth(),
     bodyParser(),
+    server('./src/views'),
   ]);
 }
