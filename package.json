@@ -36,6 +36,7 @@
     "@types/koa-router": "^7.0.21",
     "@types/mongoose": "^4.7.3",
     "@types/node": "^7.0.5",
+    "@types/socket.io": "^1.4.28",
     "typescript": "2.2.1"
   }
 }

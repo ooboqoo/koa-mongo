@@ -1,4 +1,4 @@
-import { Middleware } from 'koa';
+import { Middleware, Context } from 'koa';
 import * as jwt from 'koa-jwt/lib';
 import * as config from 'config';
 
@@ -7,5 +7,5 @@ export default (opts?): Middleware => {
     secret: config.get<string>('jwtSecret'),
     key: 'jwtdata',
     getToken: (ctx, opts) => ctx.header.authorization
-  }).unless({ path: [/^\/[^/]*$/, /^\/error/, /^\/token/, /^\/socket.io/] });
+  }).unless({ path: [/^\/[^/]*$/, /^\/error/, /^\/token/] });
 }
