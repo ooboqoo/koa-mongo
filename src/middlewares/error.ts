@@ -1,4 +1,4 @@
-import { Middleware } from 'koa';
+import { Middleware, Context } from 'koa';
 
 export default (opts?): Middleware => {
   return async (ctx, next) => {

@@ -1,6 +1,6 @@
 import * as Koa from 'koa';
 import * as config from 'config';
-import { setSocket } from './socket-io';
+import { attachSocketIO } from './socket-io';
 
 import middleware from './middlewares';
 import routes from './routes';
@@ -11,7 +11,7 @@ const app = new Koa();
 app.use(middleware());
 app.use(routes());
 
-setSocket(app);
+attachSocketIO(app);
 
 (async() => {
   try {
