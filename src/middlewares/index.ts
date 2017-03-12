@@ -7,6 +7,7 @@ import * as server from 'koa-static';
 
 import handleErrors from './error';
 import auth from './auth';
+import delay from './delay';
 
 export default function middleware() {
   return compose([
@@ -15,6 +16,7 @@ export default function middleware() {
     convert(cors()),
     auth(),
     bodyParser(),
-    server('./src/views'),
+    server('./src/views', {defer: true}),
+    delay({ms: 500}),
   ]);
 }
