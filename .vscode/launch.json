@@ -10,6 +10,7 @@
       "name": "Launch Program",
       "program": "${workspaceRoot}\\dist\\app.js",
       "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
       "sourceMaps": true
     }
   ]
