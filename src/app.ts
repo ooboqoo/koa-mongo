@@ -14,19 +14,21 @@ app.use(routes());
 attachSocketIO(app);
 
 (async () => {
+  const displayColor = config.get('logColor');
   try {
     const dbUrl = config.get<string>('dbUrl');
     const info = await connectDatabase(dbUrl);
-    console.info('\x1b[32m%s\x1b[0m', `Connected to ${dbUrl}`);
+    console.info(displayColor ? '\x1b[32m%s\x1b[0m' : '%s', `Connected to ${dbUrl}`);
   } catch (error) {
-    console.error('\x1b[31m%s\n%s\x1b[0m', 'Unable to connect to database.', error);
+    console.error(displayColor ? '\x1b[31m%s\n%s\x1b[0m' : '%s\n%s',
+                  'Unable to connect to database.', error.toString());
   }
 
   try {
     const port = config.get<string>('port');
     await app.listen(port);
-    console.info('\x1b[32m%s\x1b[0m', `Listening to http://localhost:${port}`);
+    console.info(displayColor ? '\x1b[32m%s\x1b[0m' : '%s', `Listening to http://localhost:${port}`);
   } catch (error) {
-    console.error('\x1b[31m%s\x1b[0m', error);
+    console.error(displayColor ? '\x1b[31m%s\x1b[0m' : '%s', error);
   }
 })();
