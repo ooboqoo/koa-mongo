@@ -6,7 +6,9 @@
   "author": "Gavin Wang",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node dist/app.js"
+    "tsc": "tsc -w",
+    "nodemon": "nodemon -w dist --inspect dist/app.js",
+    "start": "npm run nodemon"
   },
   "repository": {
     "type": "git",

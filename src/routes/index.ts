@@ -16,7 +16,9 @@ export default function routes() {
   const router = new Router();
 
   router
-    .get('/', (ctx: Context) => ctx.body = {echo: 'Hello World!'});
+    .get('/', (ctx: Context) => {
+      ctx.body = {echo: 'Hello World!'}
+    });
 
   // Nested routers
   children.forEach(child => {
