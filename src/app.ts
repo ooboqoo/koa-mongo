@@ -20,8 +20,7 @@ attachSocketIO(app);
     const info = await connectDatabase(dbUrl);
     console.info(displayColor ? '\x1b[32m%s\x1b[0m' : '%s', `Connected to ${dbUrl}`);
   } catch (error) {
-    console.error(displayColor ? '\x1b[31m%s\n%s\x1b[0m' : '%s\n%s',
-                  'Unable to connect to database.', error.toString());
+    console.error(displayColor ? '\x1b[31m%s\x1b[0m' : '%s', error.toString());
   }
 
   try {

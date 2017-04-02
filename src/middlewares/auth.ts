@@ -4,8 +4,8 @@ import * as config from 'config';
 
 export default (opts?): Middleware => {
   return jwt({
-    secret: config.get<string>('jwtSecret'),
+    secret: process.env.jwtSecret || config.get<string>('jwtSecret'),
     key: 'jwtdata',
     getToken: (ctx, opts) => ctx.header.authorization
-  }).unless({ path: [/^\/[^/]*$/, /^\/error/, /^\/token/] });
+  }).unless({ path: [/^\/[^/]*\/?$/, /test\/(?!auth)/] });
 }
