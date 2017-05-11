@@ -7,7 +7,7 @@ import {sleep} from '../utils';
  */
 export default (opts?): Middleware => {
   return async (ctx, next) => {
-    const delay = ctx.request.body.sleep || opts.ms || 2000;
+    const delay = Number.parseInt(ctx.query.sleep) || opts.ms || 2000;
     await sleep(delay);
     await next();
   };
