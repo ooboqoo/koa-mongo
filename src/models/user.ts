@@ -1,4 +1,5 @@
-import { Document, Schema, Model, model } from 'mongoose';
+import * as mongoose from 'mongoose';
+import {Document, Schema} from 'mongoose';
 
 export interface User {
   username: string;
@@ -11,7 +12,7 @@ export interface UserModel extends User, Document {
 
 const userSchema = new Schema({
   username: String,
-  _createTime: { type: Date, default: Date.now }
+  _createTime: {type: Date, default: Date.now}
 }, {
   versionKey: false
 })
@@ -20,4 +21,4 @@ userSchema.virtual('createTime')
   .set( function(value) { this._createTime = value; })
   .get( function() { return this._createTime.toLocaleString(); } );
 
-export default model<UserModel>('User', userSchema);
+export default mongoose.model<UserModel>('User', userSchema);

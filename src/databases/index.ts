@@ -1,12 +1,11 @@
-import * as mongoose from 'mongoose';
+import {connect, connection as db} from 'mongoose';
 
 export function connectDatabase(uri) {
   return new Promise((resolve, reject) => {
-    mongoose.connection
-      .on('error', error => reject(error))
+    db.on('error', error => reject(error))
       .on('close', () => console.log('Database connection closed.'))
-      .once('open', () => resolve(mongoose.connection));
+      .once('open', () => resolve(db));
 
-    mongoose.connect(uri);
+    connect(uri);
   });
 }
