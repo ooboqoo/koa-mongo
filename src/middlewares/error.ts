@@ -1,17 +1,17 @@
-import { Middleware, Context } from 'koa';
+import { Middleware, Context } from 'koa'
 
 export default (opts?): Middleware => {
   return async (ctx, next) => {
     try {
-      await next();
+      await next()
     } catch (e) {
       switch (e.status) {
         case 401:
-          ctx.body = 'Please login first!';
-          break;
+          ctx.body = 'Please login first!'
+          break
         default:
-          ctx.body = e.stack || e.message;
+          ctx.body = e.stack || e.message
       }
     }
-  };
+  }
 }

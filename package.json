@@ -1,6 +1,6 @@
 {
   "name": "koa-mongo",
-  "version": "v0.0.1",
+  "version": "v0.0.2",
   "description": "Koa2 + MongoDB + TypeScript Playground",
   "main": "index.js",
   "author": "Gavin Wang",
@@ -15,28 +15,38 @@
     "url": "git+https://github.com/ooboqoo/koa-mongo"
   },
   "dependencies": {
-    "config": "^1.25.0",
-    "jsonwebtoken": "^7.3.0",
-    "koa": "^2.0.1",
-    "koa-bodyparser": "^4.1.0",
+    "config": "^1.30.0",
+    "jsonwebtoken": "^8.2.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
     "koa-cors": "0.0.16",
-    "koa-jwt": "^2.2.3",
-    "koa-logger": "^2.0.1",
-    "koa-multer": "^1.0.1",
-    "koa-router": "^7.0.1",
-    "koa-socket": "^4.4.0",
-    "koa-static": "^3.0.0",
-    "mongoose": "^4.7.7"
+    "koa-jwt": "^3.3.2",
+    "koa-logger": "^3.2.0",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-socket-2": "^1.0.17",
+    "koa-static": "^4.0.3",
+    "mongoose": "^5.1.2",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "@types/config": "0.0.32",
-    "@types/jsonwebtoken": "^7.2.0",
-    "@types/koa": "^2.0.38",
-    "@types/koa-bodyparser": "^3.0.23",
-    "@types/koa-router": "^7.0.21",
-    "@types/mongoose": "^4.7.3",
-    "@types/node": "^7.0.5",
-    "@types/socket.io": "^1.4.28",
-    "typescript": "2.2.1"
+    "@types/config": "0.0.34",
+    "@types/jsonwebtoken": "^7.2.7",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-multer": "^1.0.0",
+    "@types/koa-router": "^7.0.28",
+    "@types/mongoose": "^5.0.14",
+    "@types/node": "^10.1.2",
+    "@types/socket.io": "^1.4.33",
+    "eslint-plugin-typescript": "^0.12.0",
+    "standard": "^11.0.1",
+    "typescript": "^2.8.3",
+    "typescript-eslint-parser": "^15.0.0"
+  },
+  "standard": {
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
   }
 }

@@ -1,5 +1,5 @@
-import {Middleware} from 'koa';
-import {sleep} from '../utils';
+import {Middleware} from 'koa'
+import {sleep} from '../utils'
 
 /**
  * Sleep specific millseconds before response.
@@ -7,8 +7,8 @@ import {sleep} from '../utils';
  */
 export default (opts?): Middleware => {
   return async (ctx, next) => {
-    const delay = Number.parseInt(ctx.query.sleep) || opts.ms || 2000;
-    await sleep(delay);
-    await next();
-  };
+    const delay = Number.parseInt(ctx.query.sleep) || opts.ms || 2000
+    await sleep(delay)
+    await next()
+  }
 }

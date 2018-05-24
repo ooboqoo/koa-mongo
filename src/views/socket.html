@@ -11,14 +11,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
 // ------------------------------------------------------------------------------------------------
-const socket = io('http://localhost:3300');
+const socket = io('http://localhost:3300')
 socket.on('msg', function (data) {
   console.log('received news with data: ' + data);
-});
+})
 
 function myclick () {
-  console.log("click");
-  socket.emit('msg', { clickdata: 'I clicked the button' });
+  console.log("click")
+  socket.emit('msg', { clickdata: 'I clicked the button' })
 }
 // ------------------------------------------------------------------------------------------------
     </script>
