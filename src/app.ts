@@ -1,10 +1,10 @@
 import * as Koa from 'koa'
 import * as config from 'config'
-import { attachSocketIO } from './socket-io'
 
 import middleware from './middlewares'
 import routes from './routes'
-import { connectDatabase } from './databases'
+import connectDatabase from './databases'
+import attachSocketIO from './socket-io'
 
 const app = new Koa()
 

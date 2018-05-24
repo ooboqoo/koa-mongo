@@ -1,5 +1,12 @@
-# Demo Topic
+# Demo 
 
+## Useful Links
+
+* https://github.com/koajs/koa/wiki
+* http://mongoosejs.com/docs/
+
+
+## Topics
 
 ### Code Style
 
@@ -23,6 +30,16 @@ $ npx standard **/**/*.ts
 ```
 
 ### JWT Authentication
+
+Change the secret key in _config/default.json_
+
+```json
+{"jwtSecret": "your-own-secret-words"}
+```
+
+The downstream middleware can access the auth info from `ctx.state.user`.
+
+Client test:
 
 ```bash
 # fetch the token

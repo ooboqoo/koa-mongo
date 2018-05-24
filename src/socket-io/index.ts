@@ -1,7 +1,7 @@
 import * as Koa from 'koa'
 import * as IO from 'koa-socket-2'
 
-export function attachSocketIO (app: Koa) {
+export default function attachSocketIO (app: Koa) {
   const io = new IO()
 
   io.attach(app)
