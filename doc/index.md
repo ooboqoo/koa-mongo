@@ -53,3 +53,8 @@ $ curl http://localhost:3300/test/auth -H "Authorization: <fill in your token he
 
 
 
+### Others
+
+Fetch static resource served form folder 'doc' and 'views' don't need authorization.
+
+You can find the full api list with the path http://localhost:3300/api

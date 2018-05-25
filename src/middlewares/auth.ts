@@ -8,8 +8,6 @@ export default (opts?): Middleware => {
     getToken: (ctx: any) => ctx.header.authorization
   }).unless({ path: [
     /^\/[^/]*\/?$/,
-    /\/views/,
-    /\/socket.io/,
     /test\/(?!auth)/
   ]})
 }

@@ -3,12 +3,12 @@ import * as Router from 'koa-router'
 import { Context } from 'koa'
 
 import test from './test'
-import files from './files'
+import file from './file'
 import user from './api/user'
 
 const children = [
   {routes: test, prefix: ''},
-  {routes: files, prefix: '/api'},
+  {routes: file, prefix: ''},
   {routes: user, prefix: '/api'}
 ]
 
@@ -17,7 +17,7 @@ export default function routes () {
 
   router
     .get('/api', (ctx: Context) => {
-      ctx.body = {echo: 'Hello World!'}
+      ctx.body = router.stack.map(i => i.path)
     })
 
   // Nested routers

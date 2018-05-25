@@ -19,7 +19,7 @@ interface IMulterContext extends Router.IRouterContext {
 
 export default (router: Router) => {
   router
-    .post('/profile', upload.single('avatar'), async (ctx: IMulterContext) => { // avatar 为 form 的字段名
+    .post('/profile/upload', upload.single('avatar'), async (ctx: IMulterContext) => { // 'avatar' is the 'name' value of form field
       const {originalname, path} = ctx.req.file
       fs.rename(path, dest + originalname, null)
       ctx.body = {originalname, path}

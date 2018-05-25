@@ -14,20 +14,20 @@ app.use(routes())
 attachSocketIO(app)
 
 ;(async () => {
-  const displayColor = config.get('logColor')
+  const displayColors = config.get('displayColors')
   try {
     const dbUrl = config.get<string>('dbUrl')
     const info = await connectDatabase(dbUrl)
-    console.info(displayColor ? '\x1b[32m%s\x1b[0m' : '%s', `Connected to ${dbUrl}`)
+    console.info(displayColors ? '\x1b[32m%s\x1b[0m' : '%s', `Connected to ${dbUrl}`)
   } catch (error) {
-    console.error(displayColor ? '\x1b[31m%s\x1b[0m' : '%s', error.toString())
+    console.error(displayColors ? '\x1b[31m%s\x1b[0m' : '%s', error.toString())
   }
 
   try {
     const port = config.get<string>('port')
     await app.listen(port)
-    console.info(displayColor ? '\x1b[32m%s\x1b[0m' : '%s', `Listening to http://localhost:${port}`)
+    console.info(displayColors ? '\x1b[32m%s\x1b[0m' : '%s', `Listening to http://localhost:${port}`)
   } catch (error) {
-    console.error(displayColor ? '\x1b[31m%s\x1b[0m' : '%s', error)
+    console.error(displayColors ? '\x1b[31m%s\x1b[0m' : '%s', error)
   }
 })()
