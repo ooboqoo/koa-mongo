@@ -19,6 +19,12 @@ export default function routes () {
     .get('/api', (ctx: Context) => {
       ctx.body = router.stack.map(i => i.path)
     })
+    .get('/echo', (ctx: Context) => {
+      ctx.body = {method: ctx.method, headers: ctx.headers, query: ctx.query}
+    })
+    .post('/echo', (ctx: Context) => {
+      ctx.body = {method: ctx.method, headers: ctx.headers, params: ctx.request.body}
+    })
 
   // Nested routers
   children.forEach(child => {
