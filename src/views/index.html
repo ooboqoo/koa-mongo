@@ -24,5 +24,30 @@
       ;[].forEach.call(doc.querySelectorAll("pre > code"), hljs.highlightBlock)
     })
   </script>
+  <style>
+    html {
+      margin: auto;
+      max-width: 1000px;
+      background-color: #f9f9f9;
+    }
+    body {
+      padding: 10px 20px;
+      background-color: #fff;
+    }
+    h3::before {
+      content: '> '
+    }
+    code {
+      font-family: Consolas, "Courier New", Courier, monospace;
+    }
+    blockquote {
+      margin: 0;
+      padding: 0 10px;
+      border: 1px solid #eee;
+    }
+    blockquote > * {
+      margin: 10px 0;
+    }
+  </style>
 </body>
 </html>

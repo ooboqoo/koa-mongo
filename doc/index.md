@@ -1,9 +1,24 @@
-# Demo 
+# koa-mongo
 
-## Useful Links
+https://github.com/ooboqoo/koa-mongo
 
-* https://github.com/koajs/koa/wiki
-* http://mongoosejs.com/docs/
+Koa2 + Mongoose + TypeScript Playground
+
+> __Useful Links__
+>
+> * https://github.com/koajs/koa/wiki
+> * https://mongoosejs.com/docs/
+> * https://socket.io/docs/
+
+## Get Started
+
+Please make sure the MongoDB service is running before start app!!
+
+```
+$ npm i
+$ npm run tsc
+$ npm start
+```
 
 
 ## Topics
@@ -31,7 +46,7 @@ $ npx standard **/**/*.ts
 
 ### JWT Authentication
 
-Change the secret key in _config/default.json_
+Change the secret key in _config/default.json_ or Set the environment variable when deploy.
 
 ```json
 {"jwtSecret": "your-own-secret-words"}
@@ -48,10 +63,10 @@ $ curl http://localhost:3300/test/token -H "Content-Type: application/json" -X P
 $ curl http://localhost:3300/test/auth -H "Authorization: <fill in your token here>"
 ```
 
-### Socket.io
+### WebSocket
 
-
-
+Test Socket.IO: http://localhost:3300/socket-io.html  
+Test WebSocket: http://localhost:3300/websocket.html
 
 ### Others
 

@@ -4,14 +4,13 @@ import * as config from 'config'
 import middleware from './middlewares'
 import routes from './routes'
 import connectDatabase from './databases'
-import attachSocketIO from './socket-io'
+import attachSocketIO from './websocket/socket-io'
+import attachWebSocket from './websocket/websocket'
 
 const app = new Koa()
 
 app.use(middleware())
 app.use(routes())
-
-attachSocketIO(app)
 
 ;(async () => {
   const displayColors = config.get('displayColors')
@@ -25,8 +24,10 @@ attachSocketIO(app)
 
   try {
     const port = config.get<string>('port')
-    await app.listen(port)
+    const server = await app.listen(port)
     console.info(displayColors ? '\x1b[32m%s\x1b[0m' : '%s', `Listening to http://localhost:${port}`)
+    attachSocketIO(server)
+    attachWebSocket(server)
   } catch (error) {
     console.error(displayColors ? '\x1b[31m%s\x1b[0m' : '%s', error)
   }
