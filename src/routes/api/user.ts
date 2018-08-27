@@ -30,8 +30,7 @@ export default (router: Router) => {
           time: user.createTime
         }
       }
-    }
-    )
+    })
     .put('/users/:id', async (ctx) => {
       const user = await User.findByIdAndUpdate(
         ctx.params.id,

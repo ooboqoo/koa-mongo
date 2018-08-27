@@ -1,6 +1,6 @@
 {
   "name": "koa-mongo",
-  "version": "v0.0.2",
+  "version": "v0.1.0",
   "description": "Koa2 + MongoDB + TypeScript Playground",
   "main": "index.js",
   "author": "Gavin Wang",
