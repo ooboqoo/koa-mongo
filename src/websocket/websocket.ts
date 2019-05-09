@@ -23,6 +23,17 @@ export default function attachWS (server: Server) {
   
   wss.on('connection', (socket: WebSocket) => {
     console.log('[WebSocket] A user connected.')
+
+    setInterval(() => {
+      socket.ping(() => {
+        console.log('sent ping event')
+      })
+    }, 5000)
+
+    socket.on('pong', () => {
+      console.log('received pong event')
+    })
+
     socket.on('message', (message: string) => {
       let req
       console.log('[WebSocket] Received: ', message)
@@ -31,6 +42,11 @@ export default function attachWS (server: Server) {
       }
       if (typeof req === 'object' && req.t) {
         handleJsonCommunication(req)
+      } else if (message === 'PING') {
+        // There is no browser API to send ping frames or receive pong frames,
+        // here we implement a high level ping/pong API.
+        // https://stackoverflow.com/questions/10585355/sending-websocket-ping-pong-frame-from-browser
+        socket.send('PONG')
       } else {
         socket.send(message)
       }
