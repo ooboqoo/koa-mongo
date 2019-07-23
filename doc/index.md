@@ -70,6 +70,6 @@ Test WebSocket: http://localhost:3300/websocket.html
 
 ### Others
 
-Fetch static resource served form folder 'doc' and 'views' don't need authorization.
+Fetching static resources served from the folder _doc_ and _views_ does not require any authorization.
 
-You can find the full api list with the path http://localhost:3300/api
+You can find the full API list with the path http://localhost:3300/api.
