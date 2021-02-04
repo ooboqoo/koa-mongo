@@ -1,6 +1,6 @@
 import { Server } from 'http'
-import * as url from 'url'
-import * as WebSocket from 'ws'
+import url from 'url'
+import WebSocket from 'ws'
 
 interface packet {
   t: string;

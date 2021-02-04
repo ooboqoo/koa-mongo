@@ -1,6 +1,6 @@
-import { Middleware, Context } from 'koa'
-import * as jwt from 'koa-jwt'
-import * as config from 'config'
+import { Middleware } from 'koa'
+import jwt from 'koa-jwt'
+import config from 'config'
 
 export default (opts?): Middleware => {
   return jwt({

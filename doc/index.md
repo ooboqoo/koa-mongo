@@ -29,7 +29,7 @@ $ npm start
 $ npm i -D standard typescript-eslint-parser eslint-plugin-typescript
 ```
 
-_package.josn_ add:
+_package.json_ add:
 
 ```json
 {
@@ -72,4 +72,4 @@ Test WebSocket: http://localhost:3300/websocket.html
 
 Fetching static resources served from the folder _doc_ and _views_ does not require any authorization.
 
-You can find the full API list with the path http://localhost:3300/api.
+You can find the full API list with the path: http://localhost:3300/api.

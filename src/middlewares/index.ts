@@ -1,9 +1,9 @@
-import * as config from 'config'
-import * as compose from 'koa-compose' // Compose the given middleware and return middleware.
-import * as logger from 'koa-logger'
-import * as cors from '@koa/cors'
-import * as bodyParser from 'koa-bodyparser'
-import * as serve from 'koa-static'
+import config from 'config'
+import compose from 'koa-compose' // Compose the given middleware and return middleware
+import logger from 'koa-logger'
+import cors from '@koa/cors'
+import bodyParser from 'koa-bodyparser'
+import serve from 'koa-static'
 
 import handleErrors from './error'
 import auth from './auth'
@@ -13,7 +13,7 @@ export default function middleware () {
   return compose([
     logger(),
     handleErrors(),
-    serve('./src/views'),  // static resources don't need authorization
+    serve('./src/views'),  // No authorization required for static resources
     serve('./doc'),
     cors(),
     auth(),

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "esnext",
     "module": "commonjs",
     "sourceMap": true,
+    "esModuleInterop": true,
     "removeComments": true,
     "noImplicitAny": false,
     "outDir": "dist"

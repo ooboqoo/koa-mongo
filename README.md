@@ -1,25 +1,21 @@
 # koa-mongo
 
-Koa2 + Mongoose + TypeScript Playground
-
-> Koa2 requires node v7.6.0 or higher for ES2015 and async function support.
+Koa2 + MongoDB + TypeScript Playground
 
 
 ## Get Started
 
 > Please make sure the MongoDB service is running before start app!
 
-```
-$ npm i
-$ npm run tsc
+```bash
+$ npm install
 $ npm start
 ```
 
 
 ## Document
 
-Please refer to the folder `doc` for more infomation.
-
+Please refer to the folder `doc` for more information.
 
 
 ## Dependencies
@@ -30,10 +26,9 @@ Please refer to the folder `doc` for more infomation.
 
 ### Body Parsing
 
-* [koa-bodyparser](https://github.com/koajs/body-parser) - a body parser for koa, base on co-body
+* [koa-bodyparser](https://github.com/koajs/body-parser) - a body parser for Koa, based on co-body
 
-* [koa-multer](https://github.com/koa-modules/multer) - handling multipart/form-data for koa
-
+* [koa-multer](https://github.com/koa-modules/multer) - handling multipart/form-data for Koa
 
 
 ## DevDependencies

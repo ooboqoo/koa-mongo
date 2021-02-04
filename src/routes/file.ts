@@ -1,8 +1,8 @@
-import * as Router from 'koa-router'
-import * as config from 'config'
-import * as multer from 'koa-multer'
-import * as http from 'http'
-import * as fs from 'fs'
+import Router from 'koa-router'
+import config from 'config'
+import multer from 'koa-multer'
+import http from 'http'
+import fs from 'fs'
 
 const dest = config.get<string>('uploadDir')
 

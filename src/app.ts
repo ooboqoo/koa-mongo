@@ -1,5 +1,5 @@
-import * as Koa from 'koa'
-import * as config from 'config'
+import Koa from 'koa'
+import config from 'config'
 
 import middleware from './middlewares'
 import routes from './routes'

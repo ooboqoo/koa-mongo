@@ -1,6 +1,5 @@
-import * as compose from 'koa-compose'
-import * as Router from 'koa-router'
-import { Context } from 'koa'
+import compose from 'koa-compose'
+import Router from 'koa-router'
 
 import test from './test'
 import file from './file'
@@ -16,14 +15,24 @@ export default function routes () {
   const router = new Router()
 
   router
-    .get('/api', (ctx: Context) => {
-      ctx.body = router.stack.map(i => i.path)
+    /** Print the routes list */
+    .get('/api', (ctx) => {
+      const map = new Map<string, Set<string>>()
+      router.stack.forEach(layer => {
+        if (map.has(layer.path)) {
+          const methods = map.get(layer.path)
+          layer.methods.forEach(method => methods.add(method))
+        } else {
+          map.set(layer.path, new Set(layer.methods))
+        }
+      })
+      ctx.body = [...map.entries()].map(([path, methods]) => `[${[...methods].join(' ')}] ${path}`)
     })
-    .get('/echo', (ctx: Context) => {
-      ctx.body = {method: ctx.method, headers: ctx.headers, query: ctx.query}
+    .get('/echo', (ctx) => {
+      ctx.body = { method: ctx.method, headers: ctx.headers, query: ctx.query }
     })
-    .post('/echo', (ctx: Context) => {
-      ctx.body = {method: ctx.method, headers: ctx.headers, params: ctx.request.body}
+    .post('/echo', (ctx) => {
+      ctx.body = { method: ctx.method, headers: ctx.headers, query: ctx.query, params: ctx.request.body }
     })
 
   // Nested routers

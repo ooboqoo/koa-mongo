@@ -1,5 +1,5 @@
-import {Middleware} from 'koa'
-import {sleep} from '../utils'
+import { Middleware } from 'koa'
+import { sleep } from '../utils'
 
 /**
  * Sleep specific millseconds before response.

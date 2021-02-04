@@ -1,8 +1,8 @@
 import { Server } from 'http'
-import * as IO from 'socket.io'
+import IO, { Socket } from 'socket.io'
 
 export default function attachSocketIO (server: Server) {
-  const io = IO(server)
+  const io = new IO.Server(server)
 
   io.on('connection', (socket) => {
     console.log('[Socket.IO] A user connected.')
@@ -10,7 +10,7 @@ export default function attachSocketIO (server: Server) {
     addPingHandler(socket)
   })
   
-  function addMsgHandler (socket: IO.Socket) {
+  function addMsgHandler (socket: Socket) {
     socket.on('msg', (msg) => {
       console.log('[Socket.IO] Received: ', msg)
       socket.emit('msg', msg)
@@ -18,7 +18,7 @@ export default function attachSocketIO (server: Server) {
   }
 
   // used for network speed testing
-  function addPingHandler (socket: IO.Socket) {
+  function addPingHandler (socket: Socket) {
     let baseDelay = Math.ceil(Math.random() * 1000) * 2
     let debug = false
     // use the upper case of original `ping` and `pong` to prevent the default behavior
