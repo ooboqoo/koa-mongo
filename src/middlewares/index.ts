@@ -13,11 +13,11 @@ export default function middleware () {
   return compose([
     logger(),
     handleErrors(),
-    serve('./src/views'),  // No authorization required for static resources
+    serve('./src/views'), // No authorization required for static resources
     serve('./doc'),
     cors(),
     auth(),
     bodyParser(),
-    delay({ms: 50})
+    delay({ ms: 50 })
   ])
 }

@@ -7,7 +7,7 @@ export default (opts?): Middleware => {
     } catch (e) {
       switch (e.status) {
         case 401:
-          ctx.body = {error: e.originalError ? e.originalError.message : e.message}
+          ctx.body = { error: e.originalError ? e.originalError.message : e.message }
           break
         default:
           ctx.body = e.stack || e.message

@@ -12,8 +12,8 @@ const app = new Koa()
 app.use(middleware())
 app.use(routes())
 
-;(async () => {
-  const displayColors = config.get('displayColors')
+async function main (): Promise<void> {
+  const displayColors = config.get<boolean>('displayColors')
   try {
     const dbUrl = config.get<string>('dbUrl')
     await connectDatabase(dbUrl)
@@ -31,4 +31,7 @@ app.use(routes())
   } catch (err) {
     console.error(displayColors ? '\x1b[31m%s\x1b[0m' : '%s', err)
   }
-})()
+}
+
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+main()

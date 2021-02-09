@@ -34,8 +34,8 @@ export default (router: Router) => {
     .put('/users/:id', async (ctx) => {
       const user = await User.findByIdAndUpdate(
         ctx.params.id,
-        {name: ctx.request.body.name},
-        {new: true, runValidators: true}
+        { name: ctx.request.body.name },
+        { new: true, runValidators: true }
       )
       if (user) { ctx.body = user }
     })

@@ -6,9 +6,9 @@ import file from './file'
 import user from './api/user'
 
 const children = [
-  {routes: test, prefix: ''},
-  {routes: file, prefix: ''},
-  {routes: user, prefix: '/api'}
+  { routes: test, prefix: '' },
+  { routes: file, prefix: '' },
+  { routes: user, prefix: '/api' }
 ]
 
 export default function routes () {
@@ -20,7 +20,7 @@ export default function routes () {
       const map = new Map<string, Set<string>>()
       router.stack.forEach(layer => {
         if (map.has(layer.path)) {
-          const methods = map.get(layer.path)
+          const methods = map.get(layer.path) as Set<string>
           layer.methods.forEach(method => methods.add(method))
         } else {
           map.set(layer.path, new Set(layer.methods))

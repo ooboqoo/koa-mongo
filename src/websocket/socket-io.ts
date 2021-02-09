@@ -9,7 +9,7 @@ export default function attachSocketIO (server: Server) {
     addMsgHandler(socket)
     addPingHandler(socket)
   })
-  
+
   function addMsgHandler (socket: Socket) {
     socket.on('msg', (msg) => {
       console.log('[Socket.IO] Received: ', msg)
@@ -25,7 +25,7 @@ export default function attachSocketIO (server: Server) {
     socket.on('PING', (id) => {
       if (id.delay !== undefined) { baseDelay = id.delay; debug = id.debug; id = id.id }
       const randomDelay = debug ? Math.ceil(Math.random() * 1000) * 5 : 0
-      setTimeout(() =>socket.emit('PONG', id), baseDelay + randomDelay)
+      setTimeout(() => socket.emit('PONG', id), baseDelay + randomDelay)
     })
   }
 }

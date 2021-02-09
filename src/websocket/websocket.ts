@@ -3,12 +3,12 @@ import url from 'url'
 import WebSocket from 'ws'
 
 interface packet {
-  t: string;
-  d: any;
+  t: string
+  d: any
 }
 
 export default function attachWS (server: Server) {
-  const wss = new WebSocket.Server({noServer: true})
+  const wss = new WebSocket.Server({ noServer: true })
 
   server.on('upgrade', (request, socket, head) => {
     const pathname = url.parse(request.url).pathname
@@ -20,7 +20,7 @@ export default function attachWS (server: Server) {
       socket.destroy()
     }
   })
-  
+
   wss.on('connection', (socket: WebSocket) => {
     console.log('[WebSocket] A user connected.')
 
@@ -65,7 +65,7 @@ export default function attachWS (server: Server) {
     // used for network speed testing
     let baseDelay = Math.ceil(Math.random() * 1000) * 2
     let debug = false
-    function pingHandler ({d}: packet) {
+    function pingHandler ({ d }: packet) {
       if (d.debug !== undefined || d.delay !== undefined) {
         debug = d.debug
         if (d.delay !== undefined) { baseDelay = d.delay }

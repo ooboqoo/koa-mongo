@@ -4,10 +4,12 @@ import config from 'config'
 
 export default (opts?): Middleware => {
   return jwt({
-    secret: process.env.jwtSecret || config.get<string>('jwtSecret'),
+    secret: process.env.jwtSecret ?? config.get<string>('jwtSecret'),
     getToken: (ctx: any) => ctx.header.authorization
-  }).unless({ path: [
-    /^\/[^/]*\/?$/,
-    /test\/(?!auth)/
-  ]})
+  }).unless({
+    path: [
+      /^\/[^/]*\/?$/,
+      /test\/(?!auth)/
+    ]
+  })
 }
