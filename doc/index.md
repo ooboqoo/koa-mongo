@@ -12,11 +12,10 @@ Koa2 + Mongoose + TypeScript Playground
 
 ## Get Started
 
-Please make sure the MongoDB service is running before start app!!
+Please make sure the MongoDB service is running before starting the app!!
 
 ```
-$ npm i
-$ npm run tsc
+$ npm install
 $ npm start
 ```
 
@@ -25,24 +24,8 @@ $ npm start
 
 ### Code Style
 
-```bash
-$ npm i -D standard typescript-eslint-parser eslint-plugin-typescript
-```
+https://github.com/standard/eslint-config-standard-with-typescript
 
-_package.json_ add:
-
-```json
-{
-  "standard": {
-    "parser": "typescript-eslint-parser",
-    "plugins": ["typescript"]
-  }
-}
-```
-
-```bash
-$ npx standard **/**/*.ts
-```
 
 ### JWT Authentication
 
@@ -67,7 +50,7 @@ $ curl http://localhost:3300/test/auth -H "Authorization: <fill in your token he
 
 ### WebSocket
 
-Test Socket.IO: http://localhost:3300/socket-io.html  
+Test Socket.IO: http://localhost:3300/socket-io.html
 Test WebSocket: http://localhost:3300/websocket.html
 
 ### Others
@@ -75,3 +58,4 @@ Test WebSocket: http://localhost:3300/websocket.html
 Fetching static resources served from the folder _doc_ and _views_ does not require any authorization.
 
 You can find the full API list with the path: http://localhost:3300/api.
+Especially, the http://localhost:300/echo is fantastic for debugging.

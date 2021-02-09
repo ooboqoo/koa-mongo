@@ -5,7 +5,7 @@ Koa2 + MongoDB + TypeScript Playground
 
 ## Get Started
 
-> Please make sure the MongoDB service is running before start app!
+> Please make sure the MongoDB service is running before starting the app!
 
 ```bash
 $ npm install
@@ -15,7 +15,21 @@ $ npm start
 
 ## Document
 
-Please refer to the folder `doc` for more information.
+Please refer to the folder [doc](./doc) for more information.
+
+
+## Deploy
+
+For security reason, please put the secret information in _config/production.json_, i.e.
+
+```js
+{
+  "dbUrl": "mongodb+srv://<user>:<password>@<cluster>.bqgte.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "your-secret-word"
+}
+```
+
+This file should be placed when deploying only, then run `NODE_ENV=production node dist/app.js`.
 
 
 ## Dependencies
@@ -34,17 +48,3 @@ Please refer to the folder `doc` for more information.
 ## DevDependencies
 
 * [nodemon](http://nodemon.io/) - Monitor for any changes in your node.js application and automatically restart the server - perfect for development
-
-
-## Deploy
-
-For security reason, please put the secret information in _config/production.json_, i.e.
-
-```js
-{
-  "dbUrl": "mongodb+srv://<user>:<password>@<cluster>.bqgte.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "your-secret-word"
-}
-```
-
-This file should be placed when deploying only.
