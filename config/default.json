@@ -1,6 +1,6 @@
 {
     "port": 3300,
-    "dbUrl": "mongodb://localhost:27017/demodb",
+    "dbUrl": "mongodb://localhost:27017/demo",
     "jwtSecret": "any-secret-words",
     "uploadDir": "uploads/",
     "displayColors": true

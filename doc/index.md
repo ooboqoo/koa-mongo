@@ -46,10 +46,12 @@ $ npx standard **/**/*.ts
 
 ### JWT Authentication
 
-Change the secret key in _config/default.json_ or Set the environment variable when deploy.
+Change the secret key in _config/production.json_ or Set the environment variable when deploy.
 
 ```json
-{"jwtSecret": "your-own-secret-words"}
+{
+  "jwtSecret": "your-own-secret-words"
+}
 ```
 
 The downstream middleware can access the auth info from `ctx.state.user`.
